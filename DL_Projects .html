@@ -1,0 +1,406 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Nexus AI | Capstone Project Hackathon</title>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;800&display=swap" rel="stylesheet">
+    <style>
+        :root {
+            --bg: #0f172a;
+            --card-bg: #1e293b;
+            --primary: #6366f1;
+            --accent: #06b6d4;
+            --text: #f1f5f9;
+            --text-muted: #94a3b8;
+            --success: #10b981;
+            --warning: #f59e0b;
+            --danger: #ef4444;
+        }
+
+        body {
+            background-color: var(--bg);
+            color: var(--text);
+            font-family: 'Inter', sans-serif;
+            margin: 0;
+            padding: 0;
+            line-height: 1.6;
+        }
+
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 40px 20px;
+        }
+
+        /* HEADER */
+        header {
+            text-align: center;
+            padding: 60px 0;
+            border-bottom: 1px solid #334155;
+            margin-bottom: 40px;
+        }
+
+        h1 {
+            font-size: 3.5rem;
+            margin: 0;
+            background: linear-gradient(90deg, var(--primary), var(--accent));
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            font-weight: 800;
+        }
+
+        .subtitle {
+            font-size: 1.2rem;
+            color: var(--text-muted);
+            margin-top: 10px;
+        }
+
+        .alert-box {
+            background: rgba(99, 102, 241, 0.1);
+            border-left: 5px solid var(--primary);
+            padding: 20px;
+            margin: 30px auto;
+            max-width: 800px;
+            text-align: left;
+            border-radius: 8px;
+        }
+
+        /* INSTRUCTIONS GRID */
+        .rules-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 20px;
+            margin-bottom: 60px;
+        }
+
+        .rule-card {
+            background: var(--card-bg);
+            padding: 25px;
+            border-radius: 12px;
+            border: 1px solid #334155;
+            transition: transform 0.3s;
+        }
+
+        .rule-card:hover {
+            transform: translateY(-5px);
+            border-color: var(--primary);
+        }
+
+        .rule-icon { font-size: 2rem; margin-bottom: 15px; display: block; }
+
+        /* PROJECT CARDS */
+        .section-title {
+            font-size: 2rem;
+            margin-bottom: 30px;
+            border-left: 5px solid var(--accent);
+            padding-left: 15px;
+            margin-top: 60px;
+        }
+
+        .project-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 25px;
+        }
+
+        .project-card {
+            background: var(--card-bg);
+            border-radius: 16px;
+            overflow: hidden;
+            box-shadow: 0 4px 6px rgba(0,0,0,0.3);
+            display: flex;
+            flex-direction: column;
+            border: 1px solid #334155;
+            transition: 0.3s;
+        }
+
+        .project-card:hover {
+            box-shadow: 0 10px 20px rgba(99, 102, 241, 0.2);
+            border-color: var(--primary);
+        }
+
+        .card-header {
+            padding: 20px;
+            background: rgba(255,255,255,0.05);
+            border-bottom: 1px solid #334155;
+        }
+
+        .card-body {
+            padding: 20px;
+            flex-grow: 1;
+        }
+
+        .badge {
+            display: inline-block;
+            padding: 4px 12px;
+            border-radius: 20px;
+            font-size: 0.8rem;
+            font-weight: 600;
+            margin-bottom: 10px;
+        }
+
+        .badge-ml { background: rgba(16, 185, 129, 0.2); color: var(--success); }
+        .badge-dl { background: rgba(245, 158, 11, 0.2); color: var(--warning); }
+        .badge-vision { background: rgba(239, 68, 68, 0.2); color: var(--danger); }
+        .badge-nlp { background: rgba(6, 182, 212, 0.2); color: var(--accent); }
+
+        .industry-tag {
+            display: block;
+            margin-top: 15px;
+            font-size: 0.9rem;
+            color: var(--text-muted);
+            font-style: italic;
+        }
+
+        /* FOOTER */
+        footer {
+            text-align: center;
+            margin-top: 80px;
+            padding: 40px;
+            border-top: 1px solid #334155;
+            color: var(--text-muted);
+        }
+
+        .btn {
+            display: inline-block;
+            margin-top: 15px;
+            text-decoration: none;
+            color: var(--primary);
+            font-weight: 600;
+            font-size: 0.9rem;
+        }
+        
+        .btn:hover { text-decoration: underline; }
+
+    </style>
+</head>
+<body>
+
+<div class="container">
+    
+    <header>
+        <div style="font-size: 3rem;">🚀</div>
+        <h1>Nexus AI Capstone Hackathon</h1>
+        <p class="subtitle">Build. Deploy. Showcase. Your Portfolio Starts Here.</p>
+    </header>
+
+    <div class="alert-box">
+        <h3>📢 Instructions from the Instructor</h3>
+        <p>While regular sessions are on a short break, the learning curve must go up. I have curated <strong>15 Industry-Level Projects</strong> for you. These are not just assignments; they are portfolio pieces.</p>
+        <p><strong>Your Goal:</strong> Pick at least ONE project, build it end-to-end, and document your journey.</p>
+    </div>
+
+    <div class="rules-grid">
+        <div class="rule-card">
+            <span class="rule-icon">🤝</span>
+            <h3>Team Up</h3>
+            <p>Don't code alone. Form groups of 2-3 members. Accountability is key to finishing projects on time.</p>
+        </div>
+        <div class="rule-card">
+            <span class="rule-icon">📱</span>
+            <h3>LinkedIn Challenge</h3>
+            <p>Post your progress using <strong>#NexusAIChallenge</strong>. Share screenshots of your code, errors, and final results.</p>
+        </div>
+        <div class="rule-card">
+            <span class="rule-icon">🔍</span>
+            <h3>Research First</h3>
+            <p>Finding the dataset is 50% of the job. Use <strong>Kaggle</strong> or <strong>Roboflow</strong> to find the data yourself.</p>
+        </div>
+        <div class="rule-card">
+            <span class="rule-icon">🏆</span>
+            <h3>Demo Day</h3>
+            <p>Upon resumption, we will hold a <strong>Grand Demo Day</strong>. The best project will be featured and awarded.</p>
+        </div>
+    </div>
+
+    <h2 class="section-title">1. Classical Machine Learning</h2>
+    <div class="project-grid">
+        <div class="project-card">
+            <div class="card-header">
+                <span class="badge badge-ml">Regression</span>
+                <h3>Real Estate Price Predictor</h3>
+            </div>
+            <div class="card-body">
+                <p>Predict house prices based on area, location, and rooms. Try to find a dataset relevant to Pakistan (Karachi/Lahore) or use Boston Housing.</p>
+                <span class="industry-tag">🏢 Used by: Zameen.com, Property Portals</span>
+                <a href="https://www.kaggle.com/" target="_blank" class="btn">Search Dataset on Kaggle &rarr;</a>
+            </div>
+        </div>
+        <div class="project-card">
+            <div class="card-header">
+                <span class="badge badge-ml">Classification</span>
+                <h3>Heart Disease Risk</h3>
+            </div>
+            <div class="card-body">
+                <p>Analyze medical reports (BP, Cholesterol, Age) to predict if a patient is at risk of heart disease.</p>
+                <span class="industry-tag">🏥 Used by: HealthTech, Hospitals</span>
+                <a href="https://www.kaggle.com/" target="_blank" class="btn">Search Dataset on Kaggle &rarr;</a>
+            </div>
+        </div>
+        <div class="project-card">
+            <div class="card-header">
+                <span class="badge badge-ml">Analytics</span>
+                <h3>Customer Churn Prediction</h3>
+            </div>
+            <div class="card-body">
+                <p>Identify which customers are likely to cancel their subscription (Telco data). Help companies retain users.</p>
+                <span class="industry-tag">📉 Used by: Jazz, Telenor, Netflix</span>
+                <a href="https://www.kaggle.com/" target="_blank" class="btn">Search Dataset on Kaggle &rarr;</a>
+            </div>
+        </div>
+        <div class="project-card">
+            <div class="card-header">
+                <span class="badge badge-ml">Fraud Detection</span>
+                <h3>Credit Card Fraud</h3>
+            </div>
+            <div class="card-body">
+                <p>Build a model to detect anomalous transactions. Handle highly imbalanced data.</p>
+                <span class="industry-tag">💳 Used by: Banks, Fintech</span>
+                <a href="https://www.kaggle.com/" target="_blank" class="btn">Search Dataset on Kaggle &rarr;</a>
+            </div>
+        </div>
+    </div>
+
+    <h2 class="section-title">2. Deep Learning (CNNs)</h2>
+    <div class="project-grid">
+        <div class="project-card">
+            <div class="card-header">
+                <span class="badge badge-dl">AgriTech</span>
+                <h3>Plant Disease Detection</h3>
+            </div>
+            <div class="card-body">
+                <p>Classify images of Potato or Tomato leaves to detect diseases. Critical for agriculture.</p>
+                <span class="industry-tag">🥔 Used by: Smart Farming Apps</span>
+                <a href="https://www.kaggle.com/" target="_blank" class="btn">Search "PlantVillage" &rarr;</a>
+            </div>
+        </div>
+        <div class="project-card">
+            <div class="card-header">
+                <span class="badge badge-dl">E-Commerce</span>
+                <h3>Fashion Recommender</h3>
+            </div>
+            <div class="card-body">
+                <p>Train a CNN on Fashion MNIST to classify clothing items (Shirt, Sneaker, Bag, etc.).</p>
+                <span class="industry-tag">👗 Used by: Online Stores</span>
+                <a href="#" class="btn">Search "Fashion MNIST" &rarr;</a>
+            </div>
+        </div>
+        <div class="project-card">
+            <div class="card-header">
+                <span class="badge badge-dl">Face Analysis</span>
+                <h3>Emotion Detector</h3>
+            </div>
+            <div class="card-body">
+                <p>Use webcam input to detect if a person is Happy, Sad, Angry, or Neutral in real-time.</p>
+                <span class="industry-tag">😊 Used by: Customer Feedback AI</span>
+                <a href="#" class="btn">Search "FER-2013" &rarr;</a>
+            </div>
+        </div>
+        <div class="project-card">
+            <div class="card-header">
+                <span class="badge badge-dl">OCR</span>
+                <h3>Handwritten Digit Recog.</h3>
+            </div>
+            <div class="card-body">
+                <p>The "Hello World" of Deep Learning. Create a web app where users draw a number and AI guesses it.</p>
+                <span class="industry-tag">✍️ Used by: Bank Check Processing</span>
+                <a href="#" class="btn">Search "MNIST" &rarr;</a>
+            </div>
+        </div>
+    </div>
+
+    <h2 class="section-title">3. Advanced Vision (YOLO & Segmentation)</h2>
+    <div class="project-grid">
+        <div class="project-card">
+            <div class="card-header">
+                <span class="badge badge-vision">Object Detection</span>
+                <h3>Pothole Detection</h3>
+            </div>
+            <div class="card-body">
+                <p>Train a YOLO model to detect potholes on roads. Vital for road safety analysis.</p>
+                <span class="industry-tag">🚧 Used by: Smart Cities</span>
+                <a href="https://universe.roboflow.com/" target="_blank" class="btn">Search Roboflow Universe &rarr;</a>
+            </div>
+        </div>
+        <div class="project-card">
+            <div class="card-header">
+                <span class="badge badge-vision">Safety AI</span>
+                <h3>PPE Detection (Helmet/Vest)</h3>
+            </div>
+            <div class="card-body">
+                <p>Ensure workers are wearing Helmets and Vests. Detect "No-Helmet" violations.</p>
+                <span class="industry-tag">👷 Used by: Construction Sites</span>
+                <a href="https://universe.roboflow.com/" target="_blank" class="btn">Search Roboflow Universe &rarr;</a>
+            </div>
+        </div>
+        <div class="project-card">
+            <div class="card-header">
+                <span class="badge badge-vision">ANPR</span>
+                <h3>License Plate Recognition</h3>
+            </div>
+            <div class="card-body">
+                <p>Detect car license plates from video feeds using YOLO.</p>
+                <span class="industry-tag">🚗 Used by: Parking & Toll Plazas</span>
+                <a href="https://universe.roboflow.com/" target="_blank" class="btn">Search Roboflow Universe &rarr;</a>
+            </div>
+        </div>
+        <div class="project-card">
+            <div class="card-header">
+                <span class="badge badge-vision">Security</span>
+                <h3>Fire & Smoke Detection</h3>
+            </div>
+            <div class="card-body">
+                <p>Build an early warning system that detects fire or smoke in CCTV footage.</p>
+                <span class="industry-tag">🔥 Used by: Security Systems</span>
+                <a href="https://universe.roboflow.com/" target="_blank" class="btn">Search Roboflow Universe &rarr;</a>
+            </div>
+        </div>
+        <div class="project-card">
+            <div class="card-header">
+                <span class="badge badge-vision">Medical AI</span>
+                <h3>Brain Tumor Segmentation</h3>
+            </div>
+            <div class="card-body">
+                <p>Use U-Net to precisely mask/highlight the tumor area in MRI scans.</p>
+                <span class="industry-tag">🧠 Used by: Radiologists</span>
+                <a href="#" class="btn">Search "Brain MRI Segmentation" &rarr;</a>
+            </div>
+        </div>
+        <div class="project-card">
+            <div class="card-header">
+                <span class="badge badge-vision">Retail AI</span>
+                <h3>Supermarket Product Counter</h3>
+            </div>
+            <div class="card-body">
+                <p>Count items on a shelf (Bottles, Packets) to automate inventory management.</p>
+                <span class="industry-tag">🛒 Used by: Retail Stores</span>
+                <a href="https://universe.roboflow.com/" target="_blank" class="btn">Search Roboflow Universe &rarr;</a>
+            </div>
+        </div>
+    </div>
+
+    <h2 class="section-title">4. Natural Language Processing</h2>
+    <div class="project-grid">
+        <div class="project-card">
+            <div class="card-header">
+                <span class="badge badge-nlp">Text Analysis</span>
+                <h3>Spam Classifier</h3>
+            </div>
+            <div class="card-body">
+                <p>Build a model to classify SMS or Emails as "Spam" or "Ham" (Real).</p>
+                <span class="industry-tag">📧 Used by: Gmail, Outlook</span>
+                <a href="#" class="btn">Search "SMS Spam Collection" &rarr;</a>
+            </div>
+        </div>
+    </div>
+
+    <footer>
+        <p><strong>Nexus AI Digital</strong> | Empowering the Future of AI</p>
+        <p>Stay curious. Keep coding. See you at the Demo Day.</p>
+    </footer>
+
+</div>
+
+</body>
+</html>
